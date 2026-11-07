@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Retrato ilustrado de Roberto Figueiredo">
+  <rect width="160" height="160" fill="#dce5f0"/>
+  <circle cx="134" cy="134" r="38" fill="#cdd9e8"/>
+  <!-- pescoço -->
+  <rect x="69" y="94" width="22" height="26" rx="6" fill="#dcae8f"/>
+  <!-- terno -->
+  <path d="M18 160 C20 130 46 117 80 117 C114 117 140 130 142 160 Z" fill="#22314a"/>
+  <path d="M64 117 L80 148 L96 117 Z" fill="#f8fafc"/>
+  <path d="M77 121 L83 121 L86 147 L80 154 L74 147 Z" fill="#8c2f39"/>
+  <path d="M75 117 L85 117 L83 124 L77 124 Z" fill="#6f2430"/>
+  <path d="M62 118 L78 152 L68 160 M98 118 L82 152 L92 160" stroke="#16223a" stroke-width="3" fill="none"/>
+  <!-- orelhas -->
+  <ellipse cx="53" cy="76" rx="5" ry="8" fill="#e6b998"/>
+  <ellipse cx="107" cy="76" rx="5" ry="8" fill="#e6b998"/>
+  <!-- rosto -->
+  <ellipse cx="80" cy="72" rx="27" ry="32" fill="#f0c6a6"/>
+  <!-- barba -->
+  <path d="M54 80 C56 101 67 107 80 107 C93 107 104 101 106 80 C101 92 93 96 80 96 C67 96 59 92 54 80 Z" fill="#9ea2a8"/>
+  <!-- cabelo grisalho -->
+  <path d="M52 70 C50 44 64 35 80 35 C98 35 111 46 108 70 C105 59 99 52 91 50 C82 48 72 48 64 52 C58 56 54 62 52 70 Z" fill="#8e939a"/>
+  <!-- sobrancelhas -->
+  <path d="M63 63 Q70 60 76 62 M84 62 Q90 60 97 63" stroke="#6b7078" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <!-- óculos -->
+  <g stroke="#1f2937" stroke-width="2.2" fill="#ffffff" fill-opacity=".25">
+    <rect x="61" y="67" width="17" height="13" rx="4"/>
+    <rect x="82" y="67" width="17" height="13" rx="4"/>
+  </g>
+  <path d="M78 72 L82 72" stroke="#1f2937" stroke-width="2.2"/>
+  <circle cx="70" cy="74" r="2.5" fill="#2b2b2b"/>
+  <circle cx="90" cy="74" r="2.5" fill="#2b2b2b"/>
+  <!-- nariz e boca -->
+  <path d="M80 80 Q77 87 81 88" stroke="#c9957a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M72 93 Q80 98 88 93" stroke="#7a4a3a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,65 @@
+name: Sentinela CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verificar:
+    name: Lint, testes e dados
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Instalar dependências de produção
+        run: |
+          pip install --upgrade pip
+          pip install "pydantic>=2.7,<3" "faker>=26,<27" python-dotenv "PyYAML>=6,<7"
+
+      - name: Instalar dependências de desenvolvimento
+        run: |
+          pip install pytest pytest-cov ruff
+
+      - name: Gerar dados sintéticos
+        run: python scripts/gerar_dados.py
+
+      - name: Ruff — lint
+        run: python -m ruff check fraude/ ibm/ web/rotas.py web/servidor.py ferramentas/ scripts/
+
+      - name: Ruff — formato
+        run: python -m ruff format --check fraude/ ibm/ web/rotas.py web/servidor.py ferramentas/ scripts/
+
+      - name: Verificar sintaxe JavaScript
+        run: |
+          # Verifica que os arquivos JS são sintaxe válida (node disponível no runner)
+          node --check web/static/js/api.js
+          node --check web/static/js/ui.js
+          node --check web/static/js/app.js
+
+      - name: Testar atualização da interface
+        run: node --test tests/frontend.test.cjs
+
+      - name: Testes obrigatórios
+        run: |
+          python -m pytest tests/ -q --tb=short
+          # Falha se não encontrar testes
+          python -m pytest tests/ --collect-only -q | grep -qE "[1-9][0-9]* tests? collected"
+        env:
+          # Sem credenciais IBM nos testes locais/CI
+          WXO_SERVICE_URL: ""
+          WXO_API_KEY: ""

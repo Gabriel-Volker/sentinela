@@ -1,0 +1,51 @@
+# Credenciais e ambiente
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.wxo_inspect/
+
+# Dados de avaliacao (nao versionados)
+dados/mock/avaliacao/
+
+# Logs e temporarios
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Pytest / cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Pacotes de distribuicao
+sentinela_ferramentas_*.zip
+sentinela_app_*.zip
+
+# Material do case Sicredi (dados de terceiros, nao versionar)
+Case - Prevenção a Fraudes - Sicredi/
+
+.venv313/
+.local/
+.bob/backups/

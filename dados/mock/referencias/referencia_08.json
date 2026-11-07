@@ -1,0 +1,9 @@
+[
+  {
+    "cenario_tipo": "compra_nao_reconhecida",
+    "risco_esperado": "alto",
+    "rotulo": "fraude",
+    "feedback_label": true,
+    "nota": "Exemplo de referência de desenvolvimento. Não use como evidência do cliente atual. Não apresente como prova desta análise."
+  }
+]

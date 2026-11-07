@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentinela — Análise de Fraudes</title>
+  <link rel="stylesheet" href="/static/css/sentinela.css">
+</head>
+<body>
+  <header class="cabecalho" role="banner">
+    <div class="cabecalho-conteudo">
+      <div class="cabecalho-marca">
+        <span class="marca-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" fill="currentColor"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <span class="cabecalho-nome">Sentinela</span>
+          <span class="cabecalho-subtitulo">Análise de fraudes com IA · watsonx Orchestrate</span>
+        </div>
+      </div>
+      <div class="cabecalho-direita">
+        <div id="resumo-sessao" class="resumo-sessao" aria-live="polite"></div>
+        <button class="btn btn-secundario btn-sm" id="btn-exportar" title="Baixar os casos desta sessão em JSON">Exportar sessão</button>
+        <span class="tag-demo">Demonstração · dados sintéticos</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="pagina" id="conteudo-principal">
+
+    <!-- Como funciona -->
+    <section class="como-funciona" aria-label="Como funciona a decisão">
+      <div class="cf-texto">
+        <h1 class="cf-titulo">Como a IA decide</h1>
+        <p class="cf-desc">Escolha uma persona e uma compra. O agente de análise classifica o risco e o Sentinela aplica a regra:</p>
+      </div>
+      <ol class="cf-regras">
+        <li class="cf-regra cf-baixo">
+          <span class="cf-icone" aria-hidden="true">✓</span>
+          <div><strong>Risco baixo</strong><span>compra liberada</span></div>
+        </li>
+        <li class="cf-regra cf-medio">
+          <span class="cf-icone" aria-hidden="true">?</span>
+          <div><strong>Risco médio</strong><span>chat confirma com o cliente</span></div>
+        </li>
+        <li class="cf-regra cf-alto">
+          <span class="cf-icone" aria-hidden="true">✕</span>
+          <div><strong>Risco alto</strong><span>compra bloqueada</span></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Seletor de personas -->
+    <section class="secao-personas" aria-labelledby="titulo-personas">
+      <h2 id="titulo-personas" class="secao-titulo">1. Escolha uma persona</h2>
+      <div id="lista-personas" class="lista-personas" role="radiogroup" aria-label="Personas">
+        <p class="estado-vazio">Carregando personas…</p>
+      </div>
+    </section>
+
+    <div class="layout">
+      <!-- Coluna esquerda: perfil e compras -->
+      <aside class="coluna-perfil" aria-label="Perfil e compras da persona">
+        <section id="cartao-perfil" class="cartao cartao-perfil oculto" aria-live="polite"></section>
+
+        <section id="secao-compras" class="cartao oculto" aria-labelledby="titulo-compras">
+          <div class="cartao-cabecalho">
+            <h2 id="titulo-compras" class="secao-titulo">2. Escolha uma compra</h2>
+            <span id="contador-compras" class="texto-suave"></span>
+          </div>
+          <ul id="lista-compras" class="lista-compras" role="listbox" aria-label="Compras da persona"></ul>
+        </section>
+      </aside>
+
+      <!-- Coluna direita: transação e resultado -->
+      <section class="coluna-analise" aria-label="Análise da transação">
+        <div id="painel-vazio" class="cartao painel-vazio">
+          <div class="vazio-ilustracao" aria-hidden="true">🔍</div>
+          <p><strong>Nenhuma compra selecionada.</strong></p>
+          <p class="texto-suave">Escolha uma persona e depois uma das compras dela para ver os detalhes e pedir a análise da IA.</p>
+        </div>
+
+        <section id="cartao-transacao" class="cartao oculto" aria-labelledby="titulo-transacao">
+          <div class="cartao-cabecalho">
+            <h2 id="titulo-transacao" class="secao-titulo">3. Compra em análise</h2>
+            <span id="tx-id" class="tx-id"></span>
+          </div>
+          <div id="detalhe-transacao"></div>
+
+          <div id="comparacao-perfil" class="comparacao-perfil"></div>
+
+          <!-- Ação de análise -->
+          <div id="painel-acao" class="painel-acao oculto" role="group" aria-label="Iniciar análise">
+            <fieldset class="fieldset-modo">
+              <legend>Se a IA pedir confirmação ao cliente, quem responde?</legend>
+              <label class="opcao-modo">
+                <input type="radio" name="modo" value="manual" checked>
+                <span><strong>Você</strong><small>digita as respostas como se fosse o cliente</small></span>
+              </label>
+              <label class="opcao-modo">
+                <input type="radio" name="modo" value="roteiro">
+                <span><strong>Roteiro da persona</strong><small>usa falas pré-definidas para a demonstração</small></span>
+              </label>
+            </fieldset>
+            <button class="btn btn-primario btn-grande" id="btn-analisar" disabled>
+              Analisar com IA
+            </button>
+          </div>
+        </section>
+
+        <!-- Resultado -->
+        <section id="cartao-resultado" class="cartao cartao-resultado oculto" aria-live="polite" aria-labelledby="titulo-resultado">
+          <h2 id="titulo-resultado" class="sr-only">Resultado da análise</h2>
+          <div id="veredito"></div>
+          <div id="etapas" class="etapas"></div>
+          <div id="detalhe-resultado"></div>
+          <div class="acoes-resultado">
+            <button class="btn btn-secundario oculto" id="btn-consultar-run">Consultar execução agora</button>
+          </div>
+        </section>
+
+        <!-- Conversa com o cliente -->
+        <section id="secao-conversa" class="cartao secao-conversa oculto" aria-labelledby="titulo-conversa">
+          <div class="cartao-cabecalho">
+            <h2 id="titulo-conversa" class="secao-titulo">Validação com o cliente</h2>
+            <span id="contador-perguntas" class="texto-suave"></span>
+          </div>
+          <div id="historico-conversa" class="historico-conversa" role="log" aria-live="polite" aria-label="Histórico da conversa"></div>
+
+          <div id="painel-resposta" class="painel-resposta oculto">
+            <label for="campo-resposta" id="label-resposta" class="label-campo">Responder como o cliente</label>
+            <div class="compositor">
+              <textarea
+                id="campo-resposta"
+                class="campo-texto"
+                rows="2"
+                maxlength="2000"
+                placeholder="Digite a resposta do cliente…"
+                aria-required="true"
+              ></textarea>
+              <button class="btn btn-primario" id="btn-enviar-resposta">Enviar</button>
+            </div>
+            <div class="acoes-resposta">
+              <button class="btn btn-secundario btn-sm oculto" id="btn-simular">Usar próxima fala do roteiro</button>
+              <button class="btn btn-secundario btn-sm" id="btn-sem-resposta" title="Simula o cliente que não respondeu">Cliente não respondeu</button>
+              <span class="dica">Ctrl + Enter envia</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <!-- Notificações (toast) -->
+  <div id="area-notificacoes" class="area-notificacoes" role="region" aria-live="assertive" aria-label="Notificações"></div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

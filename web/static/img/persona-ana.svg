@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Retrato ilustrado de Ana Beatriz Ramos">
+  <rect width="160" height="160" fill="#d6efe9"/>
+  <circle cx="132" cy="28" r="34" fill="#c3e7df"/>
+  <!-- cabelo (atrás) -->
+  <path d="M49 72 C46 38 63 30 80 30 C99 30 114 40 111 74 L116 124 C106 131 96 128 92 119 L68 119 C64 128 54 131 44 124 Z" fill="#3a2419"/>
+  <!-- pescoço -->
+  <rect x="69" y="94" width="22" height="26" rx="6" fill="#d9a07c"/>
+  <!-- jaleco -->
+  <path d="M18 160 C20 130 46 117 80 117 C114 117 140 130 142 160 Z" fill="#f8fafc"/>
+  <path d="M64 117 L80 144 L96 117 Z" fill="#2a9d8f"/>
+  <path d="M64 117 L74 160 M96 117 L86 160" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+  <path d="M60 119 L80 146 L72 160" stroke="#dbe3ec" stroke-width="2.5" fill="none"/>
+  <path d="M100 119 L80 146 L88 160" stroke="#dbe3ec" stroke-width="2.5" fill="none"/>
+  <rect x="104" y="136" width="16" height="4" rx="2" fill="#2a9d8f"/>
+  <!-- orelhas -->
+  <ellipse cx="53" cy="76" rx="5" ry="8" fill="#e3ad89"/>
+  <ellipse cx="107" cy="76" rx="5" ry="8" fill="#e3ad89"/>
+  <circle cx="53" cy="86" r="2.4" fill="#e9c46a"/>
+  <circle cx="107" cy="86" r="2.4" fill="#e9c46a"/>
+  <!-- rosto -->
+  <ellipse cx="80" cy="72" rx="27" ry="32" fill="#ecb995"/>
+  <!-- franja -->
+  <path d="M52 70 C51 44 68 35 84 37 C101 39 110 52 108 70 C100 58 88 49 72 47 C64 52 57 60 52 70 Z" fill="#3a2419"/>
+  <!-- sobrancelhas e olhos -->
+  <path d="M64 64 Q70 60 76 63 M84 63 Q90 60 96 64" stroke="#3a2419" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <circle cx="70" cy="73" r="2.8" fill="#2b1d16"/>
+  <circle cx="90" cy="73" r="2.8" fill="#2b1d16"/>
+  <!-- nariz, boca, bochechas -->
+  <path d="M80 77 Q77 85 81 86" stroke="#c98b67" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M71 92 Q80 99 89 92" stroke="#a5523f" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <circle cx="63" cy="85" r="5" fill="#e98a7a" opacity=".28"/>
+  <circle cx="97" cy="85" r="5" fill="#e98a7a" opacity=".28"/>
+</svg>

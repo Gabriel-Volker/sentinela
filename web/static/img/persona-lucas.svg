@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Retrato ilustrado de Lucas Mendonça">
+  <rect width="160" height="160" fill="#e4e0f8"/>
+  <circle cx="26" cy="132" r="36" fill="#d7d1f3"/>
+  <!-- pescoço -->
+  <rect x="69" y="94" width="22" height="26" rx="6" fill="#a8704b"/>
+  <!-- moletom -->
+  <path d="M18 160 C20 130 46 117 80 117 C114 117 140 130 142 160 Z" fill="#e8912f"/>
+  <path d="M58 117 C62 132 98 132 102 117 C96 125 64 125 58 117 Z" fill="#c9771f"/>
+  <path d="M73 128 L71 150 M87 128 L89 150" stroke="#fff4e6" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- fone no pescoço -->
+  <path d="M56 104 C56 126 104 126 104 104" stroke="#374151" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <rect x="49" y="98" width="12" height="16" rx="5" fill="#1f2937"/>
+  <rect x="99" y="98" width="12" height="16" rx="5" fill="#1f2937"/>
+  <!-- orelhas -->
+  <ellipse cx="53" cy="76" rx="5" ry="8" fill="#b77b54"/>
+  <ellipse cx="107" cy="76" rx="5" ry="8" fill="#b77b54"/>
+  <!-- rosto -->
+  <ellipse cx="80" cy="73" rx="27" ry="31" fill="#c4885f"/>
+  <!-- cabelo cacheado -->
+  <g fill="#1c1410">
+    <circle cx="58" cy="56" r="10"/><circle cx="66" cy="45" r="11"/><circle cx="79" cy="40" r="12"/>
+    <circle cx="92" cy="44" r="11"/><circle cx="102" cy="54" r="10"/><circle cx="54" cy="66" r="7"/>
+    <circle cx="106" cy="65" r="7"/><circle cx="72" cy="50" r="9"/><circle cx="88" cy="51" r="9"/>
+  </g>
+  <!-- sobrancelhas e olhos -->
+  <path d="M64 65 Q70 62 76 64 M84 64 Q90 62 96 65" stroke="#1c1410" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <circle cx="70" cy="74" r="2.8" fill="#1c1410"/>
+  <circle cx="90" cy="74" r="2.8" fill="#1c1410"/>
+  <!-- nariz e boca -->
+  <path d="M80 78 Q76 86 81 87" stroke="#9c6744" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M70 92 Q80 101 90 92 Z" fill="#7a3b2e"/>
+  <path d="M73 93 Q80 96 87 93" stroke="#fff" stroke-width="2" fill="none"/>
+</svg>

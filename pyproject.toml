@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinela"
+version = "0.1.0"
+description = "MVP universitário de análise de fraudes em transações de cartão — IBM SkillsBuild"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+    "pydantic>=2.7,<3",
+    "faker>=26,<27",
+    "python-dotenv>=1.0",
+    "ibm-watsonx-orchestrate==2.19.1",
+    "ibm-cloud-sdk-core>=3.24",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "ruff>=0.5",
+    "PyYAML>=6,<7",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+# UP042: preserva repr públicas dos enums.
+# UP017: datetime.UTC é 3.11+; usamos timezone.utc para compatibilidade com 3.10 local.
+ignore = ["E501", "E402", "UP042", "UP017"]
+per-file-ignores = {"scripts/*.py" = ["F401"], "ferramentas/*.py" = ["I001"]}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fraude*", "ibm*", "web*", "ferramentas*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.4",
+]

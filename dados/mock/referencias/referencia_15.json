@@ -1,0 +1,9 @@
+[
+  {
+    "cenario_tipo": "compra_online_conhecida",
+    "risco_esperado": "baixo",
+    "rotulo": "legitimo",
+    "feedback_label": false,
+    "nota": "Exemplo de referência de desenvolvimento. Não use como evidência do cliente atual. Não apresente como prova desta análise."
+  }
+]

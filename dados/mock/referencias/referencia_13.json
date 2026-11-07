@@ -1,0 +1,9 @@
+[
+  {
+    "cenario_tipo": "ausencia_resposta",
+    "risco_esperado": "medio",
+    "rotulo": "inconclusivo",
+    "feedback_label": false,
+    "nota": "Exemplo de referência de desenvolvimento. Não use como evidência do cliente atual. Não apresente como prova desta análise."
+  }
+]
